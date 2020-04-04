@@ -1,16 +1,44 @@
-import React, {useState} from 'react';
-import {SafeAreaView, Text, Button} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {SafeAreaView, Text, Button, View} from 'react-native';
 import {styles} from './app.style';
 
+const colors = ['purple', 'blue', 'green', 'pink', 'orange', 'black'];
+const getRandomInt = (max: number): number => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+const getRandomColor = (): string => {
+  return colors[getRandomInt(colors.length)];
+};
+
 export const App = (): JSX.Element => {
-  const [showMessage, setShowMessage] = useState(false);
-  const sayHello = (): void => {
-    setShowMessage(true);
+  const [color, setColor] = useState('');
+
+  const setLuckyColor = (): void => {
+    setColor(getRandomColor());
   };
+
+  const [randomColor, setRandomColor] = useState('purple');
+  useEffect(() => {
+    const changeColorInterval = setInterval(() => {
+      setRandomColor(getRandomColor());
+    }, 1000);
+    return () => {
+      clearInterval(changeColorInterval);
+    };
+  }, []);
+
   return (
     <SafeAreaView>
-      <Button title="Say hello" onPress={sayHello} />
-      {showMessage && <Text style={styles.message}>Hello world</Text>}
+      <View style={styles.container}>
+        <Text>Random colors:</Text>
+        <Text style={[styles.colorText, {color: randomColor}]}>
+          {randomColor}
+        </Text>
+        <Button title="Get your lucky color today" onPress={setLuckyColor} />
+        {Boolean(color) && (
+          <Text style={[styles.colorText, {color}]}>{color}</Text>
+        )}
+      </View>
     </SafeAreaView>
   );
 };
