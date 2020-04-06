@@ -3,12 +3,8 @@ import {SafeAreaView, Text, Button, View} from 'react-native';
 import {styles} from './app.style';
 
 const colors = ['purple', 'blue', 'green', 'pink', 'orange', 'black'];
-const getRandomInt = (max: number): number => {
-  return Math.floor(Math.random() * Math.floor(max));
-};
-const getRandomColor = (): string => {
-  return colors[getRandomInt(colors.length)];
-};
+const getRandomInt = (max: number): number => Math.floor(Math.random() * Math.floor(max));
+const getRandomColor = (): string => colors[getRandomInt(colors.length)];
 
 export const App = (): JSX.Element => {
   const [color, setColor] = useState('');
@@ -31,13 +27,9 @@ export const App = (): JSX.Element => {
     <SafeAreaView>
       <View style={styles.container}>
         <Text>Random colors:</Text>
-        <Text style={[styles.colorText, {color: randomColor}]}>
-          {randomColor}
-        </Text>
-        <Button title="Get your lucky color today" onPress={setLuckyColor} />
-        {Boolean(color) && (
-          <Text style={[styles.colorText, {color}]}>{color}</Text>
-        )}
+        <Text style={[styles.colorText, {color: randomColor}]}>{randomColor}</Text>
+        <Button title='Get your lucky color today' onPress={setLuckyColor} />
+        {Boolean(color) && <Text style={[styles.colorText, {color}]}>{color}</Text>}
       </View>
     </SafeAreaView>
   );
