@@ -45,7 +45,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "prettier --check . --ext .js,.jsx,.ts,.tsx && eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "prettier --check . && eslint . --ext .js,.jsx,.ts,.tsx && tsc",
     "lint_fix": "prettier --write . --ext .js,.jsx,.ts,.tsx && eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "postinstall": "cd ios && pod install && cd ..",
     "scan": "sonar-scanner",
