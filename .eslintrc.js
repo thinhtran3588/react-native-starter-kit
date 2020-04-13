@@ -23,13 +23,14 @@ module.exports = {
       'error',
       { exceptMethods: ['componentDidCatch', 'componentDidAppear', 'componentDidDisappear'] },
     ],
-    'import/no-unresolved': ['error', { ignore: ['@app'] }], // ignore import with @app & .
+    'import/no-unresolved': ['error', { ignore: ['@app', '@core', '@settings', '@weather'] }], // ignore module import
     'max-len': ['error', 120], // change max length for a line to 120
     'no-console': 'error', // don't allow console
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['draft', 'draftState'] }], // no params reassigned except using immer
     'no-unused-expressions': ['error', { allowShortCircuit: true }], // don't use unused expressions except short circuit
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // don't use unused var except with _ prefix
     '@typescript-eslint/no-explicit-any': ['error'], // forbid to use 'any' type
+    'react/jsx-closing-bracket-location': 'off', // let prettier formats the code
   },
   settings: {
     'import/resolver': {
