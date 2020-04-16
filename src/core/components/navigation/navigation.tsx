@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {useTheme} from '@ui-kitten/components';
 import {NavItem} from '@core/interfaces';
 import {Icon} from '../icon/icon';
 
@@ -12,12 +13,12 @@ const Tab = createBottomTabNavigator();
 
 export const Navigation = (props: Props): JSX.Element => {
   const {navItems} = props;
+  const theme = useTheme();
   return (
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
+          activeTintColor: theme['color-primary-default'],
         }}
         initialRouteName={navItems[0].name}>
         {navItems.map((navItem) => (

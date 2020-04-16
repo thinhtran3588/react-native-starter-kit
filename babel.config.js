@@ -8,6 +8,7 @@ module.exports = {
         alias: {
           '@app': './src',
           '@core': './src/core',
+          '@assets': './src/assets',
           '@weather': './src/modules/weather',
           '@settings': './src/modules/settings',
         },

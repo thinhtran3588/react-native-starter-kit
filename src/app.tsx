@@ -1,5 +1,6 @@
 import React from 'react';
-import {Navigation} from '@core/components';
+import {Navigation, ApplicationProvider, light, mapping} from '@core/components';
+import * as customTheme from '@assets/jsons/custom_theme.json';
 import {NavItem} from '@core/interfaces';
 import {WeatherScreen} from '@weather/screens';
 import {SettingsScreen} from '@settings/screens';
@@ -22,5 +23,9 @@ const navItems: NavItem[] = [
 ];
 
 export const App = (): JSX.Element => {
-  return <Navigation navItems={navItems} />;
+  return (
+    <ApplicationProvider mapping={mapping} theme={{...light, ...customTheme}}>
+      <Navigation navItems={navItems} />
+    </ApplicationProvider>
+  );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, SafeAreaView} from '@core/components';
+import {Text, AppLayout} from '@core/components';
 
 export const WeatherScreen = (): JSX.Element => {
   return (
-    <SafeAreaView>
+    <AppLayout>
       <Text>Weather Forecast!</Text>
-    </SafeAreaView>
+    </AppLayout>
   );
 };
