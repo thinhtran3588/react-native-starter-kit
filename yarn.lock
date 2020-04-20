@@ -1128,6 +1128,14 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
+"@types/react-native-snap-carousel@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@types/react-native-snap-carousel/-/react-native-snap-carousel-3.8.1.tgz#1fabbae6053c2c234f11cec6e5622086677b4da4"
+  integrity sha512-nKpCGtyvi0RB7iyrMf3Zyl9r4fvEVMnhBnHNWZe5FPvTiJ+XPPJw3lo9HOoqZIySVvYoASQdGnFLgWnugiUmHw==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
 "@types/react-native-vector-icons@^6.4.5":
   version "6.4.5"
   resolved "https://registry.yarnpkg.com/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.5.tgz#74cbfc564bd8435e43ad6728572a0e5b49c335d1"
@@ -2222,7 +2230,7 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-dayjs@^1.8.15:
+dayjs@^1.8.15, dayjs@^1.8.24:
   version "1.8.24"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.24.tgz#2ef8a2ab9425eaf3318fe78825be1c571027488d"
   integrity sha512-bImQZbBv86zcOWOq6fLg7r4aqMx8fScdmykA7cSh+gH1Yh8AM0Dbw0gHYrsOrza6oBBnkK+/OaR+UAa9UsMrDw==
@@ -2963,7 +2971,7 @@ fbjs-scripts@^1.1.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.9:
+fbjs@^0.8.4, fbjs@^0.8.9:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -3397,6 +3405,11 @@ image-size@^0.6.0:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.6.3.tgz#e7e5c65bb534bd7cdcedd6cb5166272a85f75fb2"
   integrity sha512-47xSUiQioGaB96nqtp5/q55m0aBQSQdyIloMOc/x+QVTDZLNmXE892IIDrJ0hM1A5vcNUDD5tDffkSP5lCaIIA==
+
+immer@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-6.0.3.tgz#94d5051cd724668160a900d66d85ec02816f29bd"
+  integrity sha512-12VvNrfSrXZdm/BJgi/KDW2soq5freVSf3I1+4CLunUM8mAGx2/0Njy0xBVzi5zewQZiwM7z1/1T+8VaI7NkmQ==
 
 import-fresh@^2.0.0:
   version "2.0.0"
@@ -5437,7 +5450,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5488,6 +5501,14 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
+react-addons-shallow-compare@15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz#198a00b91fc37623db64a28fd17b596ba362702f"
+  integrity sha1-GYoAuR/DdiPbZKKP0XtZa6NicC8=
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-devtools-core@^4.0.6:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.6.0.tgz#2443b3c6fac78b801702af188abc6d83d56224e6"
@@ -5500,6 +5521,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-native-fast-image@^8.1.5:
+  version "8.1.5"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.1.5.tgz#0a6404c988dad68c98d26f91155d0a5293ba2ea5"
+  integrity sha512-DoAWGLeQ2hbllummrpXH9B38OgM0TFmNYCF34F90/hdHZirqUtYHzF4QDdb/NV7ebSijHmM3mpkzct8PXtcYyg==
 
 react-native-gesture-handler@^1.6.1:
   version "1.6.1"
@@ -5534,6 +5560,14 @@ react-native-screens@^2.4.0:
   integrity sha512-7GcXlaj7IIrM4l5Ub7BPTkNQJ2slHGt2bhmfWmW73NTXEv+7pjHlp+JpQO32Yn+O8UQGPFf0rsesfYUdER7ppQ==
   dependencies:
     debounce "^1.2.0"
+
+react-native-snap-carousel@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.9.0.tgz#017793ca3f5e901ccd5a3117d79bb18ec08928a3"
+  integrity sha512-XDCUNo0SXfHOCc/v1s96hzrf/N4lDBjXLZMNLLUeSkLsHlH2QryFyQKO48AI08fJmM5JBqGVwcJiF47aMWOmYQ==
+  dependencies:
+    prop-types "^15.6.1"
+    react-addons-shallow-compare "15.6.2"
 
 react-native-svg@^12.1.0:
   version "12.1.0"
@@ -6731,6 +6765,11 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+
+use-immer@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/use-immer/-/use-immer-0.4.0.tgz#9992280c2d8b5777e5bfc4827c69dbdcc1b219eb"
+  integrity sha512-mxx4jbRRc1/56geSc3VHx8gg3FvlzUpQPfVNJXtU1NRK/iTdK0pV3k3YPi7iFUcCM8YJ6/0dUBENyuk3WO/gxw==
 
 use-subscription@^1.0.0, use-subscription@^1.4.0:
   version "1.4.1"
