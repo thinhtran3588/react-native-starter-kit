@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useImmer} from 'use-immer';
 import {config} from '@core/config';
-import {Text, AppLayout, Alert, Dimensions, Carousel, Pagination} from '@core/components';
+import {Text, AppLayout, Alert, Dimensions, Carousel, Pagination, useTheme} from '@core/components';
 import {weatherService} from '@weather/services';
 import {WeatherData} from '@weather/interfaces';
 import {styles} from './weather_screen.styles';
@@ -16,6 +16,7 @@ interface Conditions {
 }
 
 export const WeatherScreen = (): JSX.Element => {
+  const theme = useTheme();
   const [conditions, setConditions] = useImmer<Conditions>({
     long: 105.84,
     lat: 21.02,
@@ -82,6 +83,8 @@ export const WeatherScreen = (): JSX.Element => {
         dotStyle={styles.dot}
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
+        dotColor={theme['text-basic-color']}
+        inactiveDotColor={theme['text-basic-color']}
       />
     </AppLayout>
   );

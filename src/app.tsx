@@ -1,7 +1,9 @@
 import React from 'react';
-import {Navigation, ApplicationProvider, light, mapping} from '@core/components';
+import {Navigation, ApplicationProvider, light, dark, mapping, RootLayout} from '@core/components';
 import * as customTheme from '@assets/jsons/custom_theme.json';
 import {NavItem} from '@core/interfaces';
+import {useMode} from '@core/hooks';
+import {ModeContext} from '@core/contexts';
 import {WeatherScreen} from '@weather/screens';
 import {SettingsScreen} from '@settings/screens';
 
@@ -23,9 +25,15 @@ const navItems: NavItem[] = [
 ];
 
 export const App = (): JSX.Element => {
+  const mode = useMode();
+  const theme = mode.mode === 'light' ? light : dark;
   return (
-    <ApplicationProvider mapping={mapping} theme={{...light, ...customTheme}}>
-      <Navigation navItems={navItems} />
-    </ApplicationProvider>
+    <ModeContext.Provider value={mode}>
+      <ApplicationProvider mapping={mapping} theme={{...theme, ...customTheme}}>
+        <RootLayout>
+          <Navigation navItems={navItems} />
+        </RootLayout>
+      </ApplicationProvider>
+    </ModeContext.Provider>
   );
 };

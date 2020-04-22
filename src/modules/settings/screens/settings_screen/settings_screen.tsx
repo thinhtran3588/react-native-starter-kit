@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, AppLayout} from '@core/components';
+import {AppLayout} from '@core/components';
+import {DarkMode} from './components';
 
 export const SettingsScreen = (): JSX.Element => {
   return (
     <AppLayout>
-      <Text>Settings!</Text>
+      <DarkMode />
     </AppLayout>
   );
 };

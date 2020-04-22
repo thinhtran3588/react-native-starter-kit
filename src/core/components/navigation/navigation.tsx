@@ -19,6 +19,11 @@ export const Navigation = (props: Props): JSX.Element => {
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: theme['color-primary-default'],
+          activeBackgroundColor: theme['background-basic-color-1'],
+          inactiveBackgroundColor: theme['background-basic-color-1'],
+          style: {
+            borderTopColor: theme['background-basic-color-1'],
+          },
         }}
         initialRouteName={navItems[0].name}>
         {navItems.map((navItem) => (
