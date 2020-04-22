@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useImmer} from 'use-immer';
-import {Alert, Dimensions} from 'react-native';
 import {config} from '@core/config';
-import {Text, AppLayout, Carousel, Pagination} from '@core/components';
+import {Text, AppLayout, Alert, Dimensions, Carousel, Pagination} from '@core/components';
 import {weatherService} from '@weather/services';
 import {WeatherData} from '@weather/interfaces';
-import {WeatherItem} from './components';
 import {styles} from './weather_screen.styles';
+import {WeatherItem} from './components';
 
 interface Conditions {
   lat: number;
@@ -48,7 +47,6 @@ export const WeatherScreen = (): JSX.Element => {
           : config.weather.unitCodes.celsius;
     });
   };
-
   const renderWeatherItem = ({item: weatherForecast, index}: {item: WeatherData; index: number}): JSX.Element => {
     return (
       <WeatherItem
@@ -63,7 +61,7 @@ export const WeatherScreen = (): JSX.Element => {
 
   if (weatherForecasts.length === 0) {
     return (
-      <AppLayout style={styles.layout}>
+      <AppLayout style={styles.noDataLayout}>
         <Text>No data</Text>
       </AppLayout>
     );

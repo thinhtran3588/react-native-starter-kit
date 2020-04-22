@@ -28,4 +28,6 @@ export interface GetDailyWeatherForecastJsonResult {
       icon: string;
     }[];
   }[];
+  cod: number;
+  message: string;
 }

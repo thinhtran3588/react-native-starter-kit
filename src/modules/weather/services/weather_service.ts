@@ -8,6 +8,9 @@ const getDailyWeatherForecast = async (params: GetDailyWeatherForecastParams): P
     `lat=${lat}&lon=${long}&units=${unit}&lang=${lang}&appid=${config.weather.apiKey}`;
   const fetchResult = await fetch(url);
   const jsonResult: GetDailyWeatherForecastJsonResult = await fetchResult.json();
+  if (jsonResult.cod) {
+    throw Error(jsonResult.message);
+  }
   const result: WeatherData[] = jsonResult.daily.map((w) => ({
     date: w.dt,
     status: w.weather[0].main,
