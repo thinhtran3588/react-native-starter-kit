@@ -1,11 +1,21 @@
 import React from 'react';
-import {Navigation, ApplicationProvider, light, dark, mapping, RootLayout} from '@core/components';
+import {useSelector} from 'react-redux';
+import {
+  Navigation,
+  ApplicationProvider,
+  light,
+  dark,
+  mapping,
+  RootLayout,
+  Provider,
+  PersistGate,
+  LoadingScreen,
+} from '@core/components';
 import * as customTheme from '@assets/jsons/custom_theme.json';
 import {NavItem} from '@core/interfaces';
-import {useMode} from '@core/hooks';
-import {ModeContext} from '@core/contexts';
 import {WeatherScreen} from '@weather/screens';
 import {SettingsScreen} from '@settings/screens';
+import {store, persistor, RootState} from '@app/store';
 
 const navItems: NavItem[] = [
   {
@@ -24,16 +34,24 @@ const navItems: NavItem[] = [
   },
 ];
 
-export const App = (): JSX.Element => {
-  const mode = useMode();
-  const theme = mode.mode === 'light' ? light : dark;
+const BaseApp = (): JSX.Element => {
+  const mode = useSelector((state: RootState) => state.settings.mode);
+  const theme = mode === 'light' ? light : dark;
   return (
-    <ModeContext.Provider value={mode}>
-      <ApplicationProvider mapping={mapping} theme={{...theme, ...customTheme}}>
-        <RootLayout>
-          <Navigation navItems={navItems} />
-        </RootLayout>
-      </ApplicationProvider>
-    </ModeContext.Provider>
+    <ApplicationProvider mapping={mapping} theme={{...theme, ...customTheme}}>
+      <RootLayout>
+        <Navigation navItems={navItems} />
+      </RootLayout>
+    </ApplicationProvider>
+  );
+};
+
+export const App = (): JSX.Element => {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={<LoadingScreen />}>
+        <BaseApp />
+      </PersistGate>
+    </Provider>
   );
 };

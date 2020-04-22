@@ -1,9 +1,13 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {ListItem, Toggle, Icon} from '@core/components';
-import {ModeContext} from '@core/contexts';
+import {RootState, Dispatch} from '@app/store';
 
 export const DarkMode = (): JSX.Element => {
-  const {mode, setMode} = useContext(ModeContext);
+  const mode = useSelector((state: RootState) => state.settings.mode);
+  const {
+    settings: {setMode},
+  } = useDispatch<Dispatch>();
   const onChange = (): void => {
     setMode(mode === 'dark' ? 'light' : 'dark');
   };

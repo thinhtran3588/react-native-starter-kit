@@ -3,6 +3,8 @@ import {ApplicationProvider, Text, Button, Card, ListItem, Toggle, useTheme} fro
 import {light, dark, mapping} from '@eva-design/material';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import FastImage from 'react-native-fast-image';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 export {
   Text,
@@ -23,8 +25,11 @@ export {
   TouchableOpacity,
   ListItem,
   Toggle,
+  Provider,
+  PersistGate,
 };
 export * from './app_layout/app_layout';
 export * from './icon/icon';
 export * from './navigation/navigation';
 export * from './root_layout/root_layout';
+export * from './loading_screen/loading_screen';

@@ -1,7 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {SafeAreaView, StatusBar, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import {useTheme} from '@ui-kitten/components';
-import {ModeContext} from '@core/contexts';
+import {RootState} from '@app/store';
 import {styles} from './root_layout.styles';
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
 export const RootLayout = (props: Props): JSX.Element => {
   const {children} = props;
   const theme = useTheme();
-  const {mode} = useContext(ModeContext);
+  const mode = useSelector((state: RootState) => state.settings.mode);
   return (
     <View style={styles.container}>
       <StatusBar
