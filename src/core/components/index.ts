@@ -1,5 +1,15 @@
 import {SafeAreaView, View, Alert, TouchableOpacity, Dimensions} from 'react-native';
-import {ApplicationProvider, Text, Button, Card, ListItem, Toggle, useTheme} from '@ui-kitten/components';
+import {
+  ApplicationProvider,
+  Text,
+  Button,
+  Card,
+  ListItem,
+  Toggle,
+  useTheme,
+  RadioGroup,
+  Radio,
+} from '@ui-kitten/components';
 import {light, dark, mapping} from '@eva-design/material';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import FastImage from 'react-native-fast-image';
@@ -27,6 +37,8 @@ export {
   Toggle,
   Provider,
   PersistGate,
+  RadioGroup,
+  Radio,
 };
 export * from './app_layout/app_layout';
 export * from './icon/icon';

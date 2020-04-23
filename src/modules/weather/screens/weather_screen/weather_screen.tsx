@@ -1,28 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {useImmer} from 'use-immer';
+import {useSelector} from 'react-redux';
+import {RootState} from '@app/store';
 import {config} from '@core/config';
 import {Text, AppLayout, Alert, Dimensions, Carousel, Pagination, useTheme} from '@core/components';
 import {weatherService} from '@weather/services';
 import {WeatherData} from '@weather/interfaces';
-import {styles} from './weather_screen.styles';
 import {WeatherItem} from './components';
+import {styles} from './weather_screen.styles';
 
 interface Conditions {
   lat: number;
   long: number;
   city: string;
   unit: string;
-  lang: string;
 }
 
 export const WeatherScreen = (): JSX.Element => {
   const theme = useTheme();
+  const lang = useSelector((state: RootState) => state.settings.lang);
   const [conditions, setConditions] = useImmer<Conditions>({
     long: 105.84,
     lat: 21.02,
     city: 'Hanoi',
     unit: config.weather.unitCodes.celsius,
-    lang: 'vi',
   });
   const [weatherForecasts, setWeatherForecasts] = useState<WeatherData[]>([]);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -31,14 +32,14 @@ export const WeatherScreen = (): JSX.Element => {
   useEffect(() => {
     const refresh = async (): Promise<void> => {
       try {
-        const data = await weatherService.getDailyWeatherForecast(conditions);
+        const data = await weatherService.getDailyWeatherForecast({...conditions, lang});
         setWeatherForecasts(data);
       } catch (error) {
         Alert.alert('Error', error.message);
       }
     };
     refresh();
-  }, [conditions]);
+  }, [conditions, lang]);
 
   const toggleUnit = (): void => {
     setConditions((draft) => {

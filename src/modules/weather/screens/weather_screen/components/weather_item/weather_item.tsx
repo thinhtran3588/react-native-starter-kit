@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {config} from '@core/config';
 import {Text, View, Card, FastImage, TouchableOpacity} from '@core/components';
 import {formatDate} from '@core/helpers';
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export const WeatherItem = (props: Props): JSX.Element => {
+  const {t} = useTranslation('weather');
   const {data, isToday, unit, toggleUnit} = props;
   const imageUrl = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
   const displayUnit = unit === config.weather.unitCodes.celsius ? 'C' : 'F';
@@ -35,7 +37,7 @@ export const WeatherItem = (props: Props): JSX.Element => {
         </View>
         <Text category='s1'>{data.description}</Text>
         <View style={styles.row}>
-          <Text>Humidity: </Text>
+          <Text>{`${t('humidity')}:`}</Text>
           <Text style={styles.bold} category='h6'>{`${data.humidity}%`}</Text>
         </View>
 
@@ -47,7 +49,7 @@ export const WeatherItem = (props: Props): JSX.Element => {
           </TouchableOpacity>
         )}
         <Text category='h6' style={[styles.bold, styles.date]}>
-          {`${formatDate(data.date)}, ${formatDate(data.date, 'dddd')} ${isToday ? '(Today)' : ''}`}
+          {`${formatDate(data.date)}, ${formatDate(data.date, 'dddd')} ${isToday ? `(${t('today')})` : ''}`}
         </Text>
       </Card>
     </View>

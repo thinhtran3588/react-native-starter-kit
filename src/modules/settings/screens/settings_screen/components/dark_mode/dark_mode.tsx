@@ -1,9 +1,11 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 import {ListItem, Toggle, Icon} from '@core/components';
 import {RootState, Dispatch} from '@app/store';
 
 export const DarkMode = (): JSX.Element => {
+  const {t} = useTranslation('settings');
   const mode = useSelector((state: RootState) => state.settings.mode);
   const {
     settings: {setMode},
@@ -13,8 +15,8 @@ export const DarkMode = (): JSX.Element => {
   };
   return (
     <ListItem
-      title='Dark mode'
-      description='Toggle between Dark/Light mode'
+      title={t('darkMode').toString()}
+      description={t('darkModeDesc').toString()}
       accessoryLeft={() => <Icon name='theme-light-dark' />}
       accessoryRight={() => <Toggle checked={mode === 'dark'} onChange={onChange} />}
     />
