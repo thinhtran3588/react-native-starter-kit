@@ -1,4 +1,5 @@
 {
-  "weather": "Weather",
-  "settings": "Settings"
+  "noInternetConnection": "No Internet Connection",
+  "settings": "Settings",
+  "weather": "Weather"
 }

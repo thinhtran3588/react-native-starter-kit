@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useImmer} from 'use-immer';
 import {useSelector} from 'react-redux';
+import NetInfo from '@react-native-community/netinfo';
 import {RootState} from '@app/store';
 import {config} from '@core/config';
 import {Text, AppLayout, Alert, Dimensions, Carousel, Pagination, useTheme} from '@core/components';
@@ -39,7 +40,16 @@ export const WeatherScreen = (): JSX.Element => {
       }
     };
     refresh();
-  }, [conditions, lang]);
+
+    const unsubscribe = NetInfo.addEventListener((state) => {
+      if (state.isConnected && state.isInternetReachable !== false && weatherForecasts.length === 0) {
+        refresh();
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [conditions, lang, weatherForecasts.length]);
 
   const toggleUnit = (): void => {
     setConditions((draft) => {
@@ -70,7 +80,7 @@ export const WeatherScreen = (): JSX.Element => {
   }
 
   return (
-    <AppLayout>
+    <AppLayout showInternetConnection>
       <Carousel
         data={weatherForecasts}
         renderItem={renderWeatherItem}

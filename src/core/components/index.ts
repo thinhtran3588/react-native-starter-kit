@@ -15,6 +15,7 @@ import Carousel, {Pagination} from 'react-native-snap-carousel';
 import FastImage from 'react-native-fast-image';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
+import {View as AnimatableView} from 'react-native-animatable';
 
 export {
   Text,
@@ -39,9 +40,11 @@ export {
   PersistGate,
   RadioGroup,
   Radio,
+  AnimatableView,
 };
 export * from './app_layout/app_layout';
 export * from './icon/icon';
 export * from './navigation/navigation';
 export * from './root_layout/root_layout';
 export * from './loading_screen/loading_screen';
+export * from './internet_connection/internet_connection';
