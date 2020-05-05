@@ -1,5 +1,8 @@
 {
+  "activity": "Hoạt động",
+  "back": "Quay lại",
   "noInternetConnection": "Không có kết nối mạng",
-  "weather": "Thời tiết",
-  "settings": "Cài đặt"
+  "schedule": "Lịch hẹn",
+  "settings": "Cài đặt",
+  "weather": "Thời tiết"
 }

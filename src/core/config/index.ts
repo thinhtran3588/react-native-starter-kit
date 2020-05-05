@@ -11,5 +11,5 @@ export const config = {
     {id: 'en', name: 'English'},
     {id: 'vi', name: 'Tiếng Việt'},
   ],
-  defaultLang: 'vi',
+  defaultLang: 'en',
 };

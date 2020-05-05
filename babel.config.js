@@ -11,6 +11,7 @@ module.exports = {
           '@assets': './src/assets',
           '@weather': './src/modules/weather',
           '@settings': './src/modules/settings',
+          '@schedule': './src/modules/schedule',
         },
       },
     ],

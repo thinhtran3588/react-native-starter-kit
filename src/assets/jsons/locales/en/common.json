@@ -1,5 +1,8 @@
 {
+  "activity": "Activity",
+  "back": "Back",
   "noInternetConnection": "No Internet Connection",
+  "schedule": "Schedule",
   "settings": "Settings",
   "weather": "Weather"
 }

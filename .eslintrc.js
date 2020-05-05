@@ -23,7 +23,7 @@ module.exports = {
       'error',
       { exceptMethods: ['componentDidCatch', 'componentDidAppear', 'componentDidDisappear'] },
     ],
-    'import/no-unresolved': ['error', { ignore: ['@app', '@core', '@settings', '@weather', '@assets'] }], // ignore module import
+    'import/no-unresolved': ['error', { ignore: ['@app', '@core', '@settings', '@weather', '@schedule', '@assets'] }], // ignore module import
     'max-len': ['error', 120], // change max length for a line to 120
     'no-console': 'error', // don't allow console
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['draft', 'draftState'] }], // no params reassigned except using immer
